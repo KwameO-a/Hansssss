@@ -8,11 +8,12 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import axios from "axios";
+import axios from "axios"
 
 // Adjust path as necessary for your assets
 import logoImage from "../../assets/Hanson RGB 60PX.jpg";
-import bannerImage from "../../assets/cm.jpg";
+import bannerImage from "../../assets/cm.jpg"
+// import bannerImage from "../../assets/cm.jpg";
 
 interface DigitalSignatureProps {
   onSignatureSave: (signature: string) => void;
@@ -48,42 +49,6 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
       // console.log(criminalData);
 
       const dataToSend = {
-<<<<<<< HEAD
-        "title":localStorage.getItem("title") || "",
-        "firstName":localStorage.getItem("firstName") || "",
-        "middleName":localStorage.getItem("middleName") || "",
-        "lastName":localStorage.getItem("lastName") || "",
-        "knownAs":localStorage.getItem("knownAs") || "",
-        "previousNames":localStorage.getItem("previousNames") || "",
-        "address":localStorage.getItem("address") || "",
-        "postCode":localStorage.getItem("postcode") || "",
-        "phoneNumber":localStorage.getItem("phoneNumber") || "",
-        "email":localStorage.getItem("yourEmail") || "",
-        "dob":localStorage.getItem("dateOfBirth") || "",
-        "townofBirth":localStorage.getItem("townOfBirth") || "",
-        "nationality":localStorage.getItem("selectedNationality") || "",
-        "nationalInsuaranceNumber":localStorage.getItem( "nationalInsurance" )|| "" ,
-        "gender":localStorage.getItem( "gender" )|| "" ,
-        "nextofkinName":localStorage.getItem( "nextOfKinName" )|| "" ,
-        "relationship":localStorage.getItem( "relationship" )|| "" ,
-        "nextofkinaddress":localStorage.getItem( "nextofkinaddress" )|| "" ,
-        "nextofkincontact":localStorage.getItem( "contactNumber" )|| "" ,
-        "qualification":localStorage.getItem( "highestQualification" )|| "" ,
-        "position":"Teaching Assistant",
-        "tel":localStorage.getItem("phoneNumber") || "",
-        "ReferenceTitle" : localStorage.getItem("ReferenceTitle")  || "",
-        "datesOfemployment":localStorage.getItem("startDate") || "",
-        "datesOfemploymentEnd":localStorage.getItem("endDate") || "",       
-        "ReferenceEmail":localStorage.getItem("ReferenceTitle")  || "",
-        "criminalRecordDetails":localStorage.getItem("formValues")  || "",
-        "criminalDetails":localStorage.getItem("criminalRecordDetails")  || "",
-        "ConsentToCriminalRecords":localStorage.getItem("I consent to the processing of my application with the provided information.")  || "",
-        "healthInfo":localStorage.getItem("healthInfo")  || "",
-        "HealthDeclarationDate": localStorage.getItem("HealthDeclarationDate") || "",
-        "dbs":localStorage.getItem("HealthDeclarationDate") || "",
-        "country":"",
-        "signature":signatureImage
-=======
         title: localStorage.getItem("title") || "",
         firstName: localStorage.getItem("firstName") || "",
         middleName: localStorage.getItem("middleName") || "",
@@ -105,13 +70,12 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
         nextofkinaddress: localStorage.getItem("nextofkinaddress") || "",
         nextofkincontact: localStorage.getItem("contactNumber") || "",
         qualification: localStorage.getItem("highestQualification") || "",
-        position: "Teaching Assistant",
+        position: localStorage.getItem('position') || '',
         tel: localStorage.getItem("phoneNumber") || "",
         ReferenceTitle: localStorage.getItem("ReferenceTitle") || "",
         datesOfemployment: localStorage.getItem("startDate") || "",
         datesOfemploymentEnd: localStorage.getItem("endDate") || "",
         ReferenceEmail: localStorage.getItem("ReferenceTitle") || "",
->>>>>>> c25135dc77b85f246e7079915bcb41aaa015b489
 
         
         criminalRecordDetails: criminalRecordDetails,
@@ -120,9 +84,6 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
           consentGiven === "no"
             ? ""
             : "I consent to the processing of my application with the provided information.",
-        // localStorage.getItem(
-        //   "I consent to the processing of my application with the provided information."
-        // ) || "",
         healthInfo: localStorage.getItem("healthInfo") || "",
         HealthDeclarationDate:
           localStorage.getItem("HealthDeclarationDate") || "",
@@ -133,7 +94,7 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
 
       // Use Axios to send the data to your API endpoint
       axios
-        .post("http://10.230.10.196:3002/submit-form", dataToSend)
+        .post("http://localhost:3002/submit-form", dataToSend)
         .then((response) => {
           console.log("Data submitted successfully", response.data);
           onSignatureSave(signatureImage);
