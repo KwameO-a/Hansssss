@@ -42,7 +42,7 @@ const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, o
   };
 
   const isNextDisabled = () => {
-    if (formValues.hasHealthIssue === 'yes' && (!formValues.healthInfo || !formValues.supportNeeds)) {
+    if (formValues.hasHealthIssue === 'Yes' && (!formValues.healthInfo || !formValues.supportNeeds)) {
       return true;
     }
     return !formValues.consentGiven || !formValues.HealthDeclarationDate;
@@ -79,12 +79,12 @@ const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, o
                 value={formValues.hasHealthIssue}
                 onChange={handleInputChange}
               >
-                <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                <FormControlLabel value="no" control={<Radio />} label="No" />
+                <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                <FormControlLabel value="No" control={<Radio />} label="No" />
               </RadioGroup>
             </FormControl>
 
-            {formValues.hasHealthIssue === 'yes' && (
+            {formValues.hasHealthIssue === 'Yes' && (
               <>
                 <TextField
                   fullWidth

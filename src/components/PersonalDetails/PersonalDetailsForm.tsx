@@ -65,7 +65,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ onNext }) => {
     selectedNationality: localStorage.getItem("selectedNationality") || "",
     nationalInsurance: localStorage.getItem("nationalInsurance") || "",
     gender: localStorage.getItem("gender") || "",
-    needNewDBS: "",
+    needNewDBS: localStorage.getItem("needNewDBS") || "",
   });
   const isNonMobileScreens = useMediaQuery("(min-width: 600px)");
 
@@ -80,7 +80,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ onNext }) => {
     if (!values.needNewDBS) {
       errors.needNewDBS = "Required";
     }
-    if (values.hasCriminalRecord === "yes" && !values.criminalRecordDetails) {
+    if (values.hasCriminalRecord === "Yes, I already have an enhance child and adult workforce one on the update service" && !values.criminalRecordDetails) {
       errors.criminalRecordDetails =
         "You must provide details for your criminal record";
     }
@@ -297,12 +297,12 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ onNext }) => {
               onChange={handleInputChange}
             >
               <FormControlLabel
-                value="yes"
+                value="Yes, I already have an enhance child and adult workforce one on the update service"
                 control={<Radio />}
                 label="Yes, I already have an enhance child and adult workforce one on the update service"
               />
               <FormControlLabel
-                value="no"
+                value="No, I need a new DBS"
                 control={<Radio />}
                 label="No, I need a new DBS"
               />

@@ -61,8 +61,7 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
         dateOfBirth: localStorage.getItem("dateOfBirth") || "",
         townofBirth: localStorage.getItem("townOfBirth") || "",
         nationality: localStorage.getItem("selectedNationality") || "",
-        nationalInsuaranceNumber:
-        localStorage.getItem("nationalInsurance") || "",
+        nationalInsuaranceNumber:localStorage.getItem("nationalInsurance") || "",
         gender: localStorage.getItem("gender") || "",
         needNewDBS: localStorage.getItem("needNewDBS") || "",
         nextofkinName: localStorage.getItem("nextOfKinName") || "",
@@ -99,7 +98,7 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
 
       // Use Axios to send the data to your API endpoint
       axios
-        .post("http://172.16.3.65:3002/submit-form", dataToSend)
+        .post("http://172.20.10.2:3002/submit-form", dataToSend)
         .then((response) => {
           console.log("Data submitted successfully", response.data);
           onSignatureSave(signatureImage);

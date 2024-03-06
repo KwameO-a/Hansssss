@@ -28,7 +28,7 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
     if (!values.hasCriminalRecord) {
       errors.hasCriminalRecord = 'Required';
     }
-    if (values.hasCriminalRecord === 'yes' && !values.criminalRecordDetails) {
+    if (values.hasCriminalRecord === 'Yes, I have a criminal record' && !values.criminalRecordDetails) {
       errors.criminalRecordDetails = 'You must provide details for your criminal record';
     }
     if (!values.consentGiven) {
@@ -88,12 +88,12 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
               value={formValues.hasCriminalRecord}
               onChange={handleInputChange}
             >
-              <FormControlLabel value="yes" control={<Radio />} label="Yes, I have a criminal record" />
-              <FormControlLabel value="no" control={<Radio />} label="No, I do not have a criminal record" />
+              <FormControlLabel value="Yes, I have a criminal record" control={<Radio />} label="Yes, I have a criminal record" />
+              <FormControlLabel value="No, I do not have a criminal record" control={<Radio />} label="No, I do not have a criminal record" />
             </RadioGroup>
             {formErrors.hasCriminalRecord && <Typography color="error">{formErrors.hasCriminalRecord}</Typography>}
 
-            {formValues.hasCriminalRecord === 'yes' && (
+            {formValues.hasCriminalRecord === 'Yes, I have a criminal record' && (
               <TextField
                 name="criminalRecordDetails"
                 label="If Yes, please provide details:"
