@@ -38,6 +38,18 @@ const QuestionnaireForm: React.FC<QuestionnaireFormProps> = ({ onNext, onPrev })
     }
   }, []);
 
+  useEffect(() => {
+    if (answers.questionNumber ==="no" || "not_applicable") {
+      // localStorage.setItem("question1", "");
+
+
+      answers.question1_detail = "";
+      answers.question2_detail = "";
+      
+    }
+  }, [answers]);
+
+
   const handleRadioChange = (questionNumber: string, value: string) => {
     const updatedAnswers = { ...answers, [questionNumber]: value };
     setAnswers(updatedAnswers);
@@ -110,7 +122,23 @@ const QuestionnaireForm: React.FC<QuestionnaireFormProps> = ({ onNext, onPrev })
             <FormControlLabel value="no" control={<Radio />} label="No" />
             <FormControlLabel value="not_applicable" control={<Radio />} label="Not applicable" />
           </RadioGroup>
+          
           {renderConditionalTextField('question1')}
+        </FormControl>
+        <FormControl component="fieldset" margin="normal">
+          <FormLabel component="legend">1. Do you have any convictions or adult cautions that are unspent?</FormLabel>
+          <RadioGroup
+            row
+            name="question2"
+            value={answers['question2'] || ''}
+            onChange={(e) => handleRadioChange('question2', e.target.value)}
+          >
+            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+            <FormControlLabel value="no" control={<Radio />} label="No" />
+            <FormControlLabel value="not_applicable" control={<Radio />} label="Not applicable" />
+          </RadioGroup>
+          
+          {renderConditionalTextField('question2')}
         </FormControl>
         {/* Repeat for other questions */}
         <Button variant="contained" onClick={onPrev}>

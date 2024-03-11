@@ -43,9 +43,19 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
       //   // name: 'John Doe',
       //   // date: new Date().toISOString(),
       // };
-      const { consentGiven, criminalRecordDetails, hasCriminalRecord } =
+      const { CriminalConsentGiven, criminalRecordDetails, hasCriminalRecord, date } =
         JSON.parse(localStorage.getItem("formValues") || "");
-      // console.log(criminalData);
+
+      const { excludedCounties, excludedProvisions, emailMarketing,mailMarketing,smsMarketing, consentGiven, GDPRdate } =
+        JSON.parse(localStorage.getItem("GDPRFormData") || "");
+        
+      const { question1, question1_detail, question2,question2_detail} =
+        JSON.parse(localStorage.getItem("questionnaireAnswers") || "");
+        
+
+      
+      // console.log(localStorage.getItem("date" ));
+
 
       const dataToSend = {
         title: localStorage.getItem("title") || "",
@@ -84,14 +94,43 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
         
         criminalRecordDetails: criminalRecordDetails,
         criminalDetails: hasCriminalRecord,
-        consentGiven:String(localStorage.getItem("consentGiven"))==="true"?"  I consent to the processing of my application with the provided information.":"",
-
+        CriminalConsentGiven:CriminalConsentGiven
+         ?" I consent to the processing of my application with the provided information.":"",
+        CriminalDate:date, 
+        // criminalConsentDate: localStorage.getItem("date" )|| "" , 
+        
         hasHealthIssue:localStorage.getItem('hasHealthIssue')||"" ,
+        
         //   ""
         // ) || "",
         healthInfo: localStorage.getItem("healthInfo") || "",
+        supportNeeds:localStorage.getItem('supportNeeds')||"" ,
+        doctorLetterProvided:String(localStorage.getItem("doctorLetterProvided"))==="true"?" I will provide a doctor's letter.":"",
+        HealthConsentGiven:String(localStorage.getItem("HealthConsentGiven"))==="true"?" I consent to the processing of my health information.":"",
         HealthDeclarationDate:localStorage.getItem("HealthDeclarationDate") || "",
-        dbs: localStorage.getItem("HealthDeclarationDate") || "",
+
+        DisclosureConsentGiven:String(localStorage.getItem("DisclosureConsentGiven"))==="true"?" I consent to any health information relevant to my role being disclosed to hirers in order for them to uphold their legal obligations regarding health & Safety and make reasonable adjustments to the workplace where appropriate..":"",
+        DisclosureConsentDate:localStorage.getItem("DisclosureConsentDate") || "",
+
+        excludedCounties:excludedCounties,
+        excludedProvisions:excludedProvisions,
+        emailMarketing:emailMarketing
+        ?" I consent to the processing of my application with the provided information.":"",
+        mailMarketing:mailMarketing
+        ?" I consent to the processing of my application with the provided information.":"",
+        smsMarketing:smsMarketing
+        ?" I consent to the processing of my application with the provided information.":"",
+        consentGiven:consentGiven
+        ?" I consent to the processing of my application with the provided information.":"",
+        GDPRdate:GDPRdate,
+
+        question1:question1,
+        question1_detail:question1_detail || "N/A",
+        question2:question2,
+        question2_detail:question2_detail,
+
+        
+        // dbs: localStorage.getItem("HealthDeclarationDate") || "",
         country: "",
         signature: signatureImage,
       };

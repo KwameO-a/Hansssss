@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, FormControlLabel, RadioGroup, Radio, Typography, Box, Grid, Paper, Checkbox } from '@mui/material';
 import logoImage from '../../assets/Hanson RGB 60PX.jpg';
 import bannerImage from '../../assets/cm.jpg';
+import { set } from 'mongoose';
 
 interface DisclosureOfCriminalRecordsProps {
   onNext: () => void;
@@ -12,14 +13,14 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
   const [formValues, setFormValues] = useState({
     hasCriminalRecord: '',
     criminalRecordDetails: '',
-    consentGiven: false,
+    CriminalConsentGiven: false,
     date: '',
   });
 
   const [formErrors, setFormErrors] = useState({
     hasCriminalRecord: '',
     criminalRecordDetails: '',
-    consentGiven: '',
+    CriminalConsentGiven: '',
     date: '',
   });
 
@@ -31,8 +32,8 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
     if (values.hasCriminalRecord === 'Yes, I have a criminal record' && !values.criminalRecordDetails) {
       errors.criminalRecordDetails = 'You must provide details for your criminal record';
     }
-    if (!values.consentGiven) {
-      errors.consentGiven = 'You must agree to the declarations to proceed';
+    if (!values.CriminalConsentGiven) {
+      errors.CriminalConsentGiven = 'You must agree to the declarations to proceed';
     }
     if (!values.date) {
       errors.date = 'Date is required';
@@ -45,10 +46,18 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
     if (Object.keys(storedValues).length > 0) {
       setFormValues(storedValues);
     }
-  }, []);
+  }, [
+  ]);
+  useEffect(() => {
+    if (formValues.hasCriminalRecord ==="No, I do not have a criminal record") {
+      // FormValues.((prev: any)=>({...prev,criminalRecordDetails:" "}))
+      formValues.criminalRecordDetails = "";
+    }
+  }, [formValues]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = event.target;
+    // console.log(`Name: ${name}, Value: ${value}`);
     const updatedValues = {
       ...formValues,
       [name]: type === 'checkbox' ? checked : value,
@@ -111,14 +120,14 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
             <FormControlLabel
               control={
                 <Checkbox
-                  name="consentGiven"
-                  checked={formValues.consentGiven}
+                  name="CriminalConsentGiven"
+                  checked={formValues.CriminalConsentGiven}
                   onChange={handleInputChange}
                 />
               }
               label="I consent to the processing of my application with the provided information."
             />
-            {formErrors.consentGiven && <Typography color="error">{formErrors.consentGiven}</Typography>}
+            {formErrors.CriminalConsentGiven && <Typography color="error">{formErrors.CriminalConsentGiven}</Typography>}
 
             <TextField
               name="date"

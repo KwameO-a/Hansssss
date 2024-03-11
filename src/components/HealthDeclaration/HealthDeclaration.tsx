@@ -11,11 +11,11 @@ interface HealthDeclarationFormProps {
 const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, onPrev }) => {
   // Correct initialization with parsing for boolean values
   const [formValues, setFormValues] = useState({
-    hasHealthIssue: localStorage.getItem('hasHealthIssue') || 'no',
+    hasHealthIssue: localStorage.getItem('hasHealthIssue') || 'No',
     healthInfo: localStorage.getItem('healthInfo') || '',
     supportNeeds: localStorage.getItem('supportNeeds') || '',
     doctorLetterProvided: localStorage.getItem('doctorLetterProvided') === 'true', // Correctly parse boolean
-    consentGiven: localStorage.getItem('consentGiven') === 'true', // Correctly parse boolean
+    HealthConsentGiven: localStorage.getItem('HealthConsentGiven') === 'true', // Correctly parse boolean
     HealthDeclarationDate: localStorage.getItem('HealthDeclarationDate') || '',
   });
 
@@ -27,6 +27,22 @@ const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, o
       localStorage.setItem(key, typeof value === 'boolean' ? String(value) : value);
     });
   }, [formValues]);
+
+
+  useEffect(() => {
+    if (formValues.hasHealthIssue ==="No") {
+      localStorage.setItem("healthInfo", "");
+      localStorage.setItem("supportNeeds", "");
+      localStorage.setItem("doctorLetterProvided", "false");
+
+
+      formValues.healthInfo = " ";
+      formValues.supportNeeds = " ";
+      formValues.doctorLetterProvided = false;
+    }
+  }, [formValues]);
+
+
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = event.target;
@@ -45,7 +61,7 @@ const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, o
     if (formValues.hasHealthIssue === 'Yes' && (!formValues.healthInfo || !formValues.supportNeeds)) {
       return true;
     }
-    return !formValues.consentGiven || !formValues.HealthDeclarationDate;
+    return !formValues.HealthConsentGiven || !formValues.HealthDeclarationDate;
   };
 
   return (
@@ -114,7 +130,7 @@ const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, o
             )}
 
             <FormControlLabel
-              control={<Checkbox checked={formValues.consentGiven} onChange={handleInputChange} name="consentGiven" />}
+              control={<Checkbox checked={formValues.HealthConsentGiven} onChange={handleInputChange} name="HealthConsentGiven" />}
               label="I consent to the processing of my health information"
             />
             <TextField

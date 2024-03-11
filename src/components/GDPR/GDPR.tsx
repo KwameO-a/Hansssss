@@ -15,7 +15,7 @@ const GDPRInformationForm: React.FC<GDPRInformationFormProps> = ({ onNext, onPre
     emailMarketing: false,
     mailMarketing: false,
     smsMarketing: false,
-    date: '',
+    GDPRdate: '',
     consentGiven: false,
   });
 
@@ -38,7 +38,7 @@ const GDPRInformationForm: React.FC<GDPRInformationFormProps> = ({ onNext, onPre
     onNext(); // Proceed to the next step
   };
 
-  const isNextDisabled = () => !formData.consentGiven || !formData.date;
+  const isNextDisabled = () => !formData.consentGiven || !formData.GDPRdate;
 
   return (
     <Grid container spacing={2} sx={{ height: '100vh', padding: 4 }}>
@@ -101,8 +101,8 @@ const GDPRInformationForm: React.FC<GDPRInformationFormProps> = ({ onNext, onPre
               <TextField
                 label="Date"
                 type="date"
-                name="date"
-                value={formData.date}
+                name="GDPRdate"
+                value={formData.GDPRdate}
                 onChange={handleChange}
                 fullWidth
                 margin="normal"

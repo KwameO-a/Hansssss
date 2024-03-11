@@ -10,18 +10,18 @@ interface ConsentDisclosureFormProps {
 
 const ConsentDisclosureForm: React.FC<ConsentDisclosureFormProps> = ({ onNext, onPrev }) => {
   // Using useState to initialize form fields with localStorage data or default values
-  const [consentGiven, setConsentGiven] = useState(JSON.parse(localStorage.getItem('consentGiven') || 'false'));
-  const [ConsentDate, setConsentDate] = useState(localStorage.getItem('ConsentDate') || '');
+  const [DisclosureConsentGiven, setDisclosureConsentGiven] = useState(JSON.parse(localStorage.getItem('DisclosureConsentGiven') || 'false'));
+  const [DisclosureConsentDate, setConsentDate] = useState(localStorage.getItem('DisclosureConsentDate') || '');
   const isNonMobileScreens = useMediaQuery("(min-width: 600px)");
 
-  // useEffect to update localStorage whenever consentGiven or date changes
+  // useEffect to update localStorage whenever DisclosureConsentGiven or date changes
   useEffect(() => {
-    localStorage.setItem('consentGiven', JSON.stringify(consentGiven));
-    localStorage.setItem('ConsentDate', ConsentDate);
-  }, [consentGiven, ConsentDate]);
+    localStorage.setItem('DisclosureConsentGiven', JSON.stringify(DisclosureConsentGiven));
+    localStorage.setItem('DisclosureConsentDate', DisclosureConsentDate);
+  }, [DisclosureConsentGiven, DisclosureConsentDate]);
 
   const isNextDisabled = () => {
-    return !consentGiven || !ConsentDate; // Returns true if consent is not given or date is empty
+    return !DisclosureConsentGiven || !DisclosureConsentDate; // Returns true if consent is not given or date is empty
   };
   
 
@@ -94,7 +94,7 @@ Please sign the declaration below to confirm that we have your consent to share 
             {/* Additional Typography and FormControlLabel components remain unchanged */}
 
             <FormControlLabel
-              control={<Checkbox checked={consentGiven} onChange={(e) => setConsentGiven(e.target.checked)} name="consentGiven" />}
+              control={<Checkbox checked={DisclosureConsentGiven} onChange={(e) => setDisclosureConsentGiven(e.target.checked)} name="DisclosureConsentGiven" />}
               label="I consent to any health information relevant to my role being disclosed to hirers in order for them to uphold their legal obligations regarding health & Safety and make reasonable adjustments to the workplace where appropriate."
             />
             <TextField
@@ -102,7 +102,7 @@ Please sign the declaration below to confirm that we have your consent to share 
               type="date"
               fullWidth
               margin="normal"
-              value={ConsentDate}
+              value={DisclosureConsentDate}
               onChange={(e) => setConsentDate(e.target.value)}
               InputLabelProps={{ shrink: true }}
             />
