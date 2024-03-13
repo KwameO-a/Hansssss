@@ -39,12 +39,9 @@ const QuestionnaireForm: React.FC<QuestionnaireFormProps> = ({ onNext, onPrev })
   }, []);
 
   useEffect(() => {
-    if (answers.questionNumber ==="no" || "not_applicable") {
-      // localStorage.setItem("question1", "");
-
-
-      answers.question1_detail = "";
-      answers.question2_detail = "";
+    if (answers.questionNumber ==="no" || answers.questionNumber ==="not_applicable") {
+      setAnswers((prev) => ({ ...prev, question1_detail : "" }));
+  localStorage.setItem("questionnaireAnswers", JSON.stringify({ ...answers, question1_detail : ""  }))
       
     }
   }, [answers]);
@@ -126,7 +123,7 @@ const QuestionnaireForm: React.FC<QuestionnaireFormProps> = ({ onNext, onPrev })
           {renderConditionalTextField('question1')}
         </FormControl>
         <FormControl component="fieldset" margin="normal">
-          <FormLabel component="legend">1. Do you have any convictions or adult cautions that are unspent?</FormLabel>
+          <FormLabel component="legend">2. Do you have any other cautions or convictions that would not be filtered?</FormLabel>
           <RadioGroup
             row
             name="question2"

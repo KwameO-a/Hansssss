@@ -29,13 +29,10 @@ const ConsentDisclosureForm: React.FC<ConsentDisclosureFormProps> = ({ onNext, o
     <Grid container spacing={2} sx={{ height: '100vh', padding: 4 }}>
       <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <Paper elevation={3} sx={{ padding: 4, margin: 2 }}>
-          <Box sx={{ textAlign: 'center', marginBottom: 2 }}>
+          <Box sx={{ textAlign: 'center', marginBottom:-10 }}>
             <img src={logoImage} alt="Company Logo" style={{ height: '50px' }} />
             <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }}>
-              Apply for this role
-            </Typography>
-            <Typography variant="subtitle1">
-              UX Designer • Full time • Remote
+            Consent to Disclose Information Relating to Disability, Health or Pregnancy
             </Typography>
           </Box>
           <Box
@@ -49,10 +46,7 @@ borderRadius="1.5rem"
           {/* Form starts here */}
           <form>
             {/* Form content goes here */}
-            
-            <Typography variant="h5" component="h2" gutterBottom style={{ fontWeight: 'bold' }}>
-Consent to Disclose Information Relating to Disability, Health or Pregnancy
-  </Typography>
+          
 <Typography>
 Under the Data Protection Act, Information relating to disability, health or pregnancy is considered to be ‘personal sensitive data’
 Hanson Recruitment will never pass this information on to its clients without first gaining your written consent. We are required to collect this information and to share it with our clients to:

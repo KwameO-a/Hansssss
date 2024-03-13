@@ -47,17 +47,16 @@ const GDPRInformationForm: React.FC<GDPRInformationFormProps> = ({ onNext, onPre
           <Box sx={{ textAlign: 'center', marginBottom: 2 }}>
             <img src={logoImage} alt="Company Logo" style={{ height: '50px' }} />
             <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }}>
-              Apply for this role
+            GDPR Related Information
             </Typography>
-            <Typography variant="subtitle1">
-              UX Designer • Full time • Remote
-            </Typography>
+            
           </Box>
           <Box width="100%" p="1rem" m="1rem auto" borderRadius="1.5rem">
             <form onSubmit={handleSubmit}>
-              <Typography variant="h6" gutterBottom>GDPR Related Information</Typography>
               <Typography>
-                As part of our commitment to comply with GDPR, we require your consent to process your personal data. Please indicate your preferences below.
+              Hanson Recruitment works with schools and education and care settings across the South West and Wales including the counties of: 
+
+City of Bristol, South Gloucestershire, North Somerset, Somerset, Gloucestershire, BANES, Wiltshire, Swindon, Dorset, Devon, Monmouthshire, Newport and Torfaen. We will contact settings within your specified travel remits/locations to try and secure you temporary/contract/permanent work.
               </Typography>
 
               <TextField

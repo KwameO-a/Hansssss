@@ -45,12 +45,10 @@ const NextOfKin: React.FC<NextOfKinProps> = ({ onNext, onPrev }) => {
         <Paper elevation={3} sx={{ padding: 4, margin: 2 }}>
           <Box sx={{ textAlign: 'center', marginBottom: 2 }}>
             <img src={logoImage} alt="Company Logo" style={{ height: '50px' }} />
-            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }}>Apply for this role</Typography>
-            <Typography variant="subtitle1">UX Designer • Full time • Remote</Typography>
+            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold', marginTop:3 }}>Next of Kin Details/ Emergency Contact</Typography>
           </Box>
 
           <form onSubmit={handleSubmit}>
-            <Typography variant="h6" gutterBottom>Next of Kin Details</Typography>
             <TextField
               label="Next of Kin Name"
               name="nextOfKinName"

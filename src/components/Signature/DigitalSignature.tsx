@@ -115,17 +115,17 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
         excludedCounties:excludedCounties,
         excludedProvisions:excludedProvisions,
         emailMarketing:emailMarketing
-        ?" I consent to the processing of my application with the provided information.":"",
+        ?" No I do not want to be sent Email marketing information":"Yes! I want to be sent Email marketing information",
         mailMarketing:mailMarketing
-        ?" I consent to the processing of my application with the provided information.":"",
+        ?" No I do not want to be sent Mail marketing information":"Yes! I want to be sent Mail marketing information",
         smsMarketing:smsMarketing
-        ?" I consent to the processing of my application with the provided information.":"",
+        ?" No I do not want to be sent SMS marketing information":"Yes! I want to be sent SMS marketing information",
         consentGiven:consentGiven
-        ?" I consent to the processing of my application with the provided information.":"",
+        ?" I consent to confirm that I have my consent to the information as outlined above.":"",
         GDPRdate:GDPRdate,
 
         question1:question1,
-        question1_detail:question1_detail || "N/A",
+        question1_detail:question1_detail || "",
         question2:question2,
         question2_detail:question2_detail,
 
@@ -137,7 +137,7 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({
 
       // Use Axios to send the data to your API endpoint
       axios
-        .post("http://172.20.10.2:3002/submit-form", dataToSend)
+        .post("http://192.168.101.161:3002/submit-form", dataToSend)
         .then((response) => {
           console.log("Data submitted successfully", response.data);
           onSignatureSave(signatureImage);

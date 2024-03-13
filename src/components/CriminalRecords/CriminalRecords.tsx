@@ -84,13 +84,15 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
       <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <Paper elevation={3} sx={{ padding: 4, margin: 2 }}>
           <Box sx={{ textAlign: 'center', marginBottom: 2 }}>
-            <img src={logoImage} alt="Company Logo" style={{ height: '50px' }} />
-            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }}>Apply for this role</Typography>
-            <Typography variant="subtitle1">UX Designer • Full time • Remote</Typography>
+            <img src={logoImage} alt="Company Logo" style={{ height: '60px' }} />
+            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold',margin: 2 }}>Disclosure of Criminal Records</Typography>
+            <Typography variant="subtitle1" textAlign={'left'} margin={2}>
+            Do you have any convictions, cautions, reprimands or final warnings that are not “protected” as defined by the rehabilitation of Offenders Act 1974 (Exceptions) order 1975 (as amended in 2013)? Are you aware of any police enquiries undertaken following allegations made against you which may have a bearing on your suitability for this work?
+            </Typography>
           </Box>
 
           <form onSubmit={handleSubmit}>
-            <Typography variant="h5" component="h2" gutterBottom style={{ fontWeight: 'bold' }}>Disclosure of Criminal Records</Typography>
+            {/* <Typography variant="h5" component="h2" gutterBottom style={{ fontWeight: 'bold' }}>Disclosure of Criminal Records</Typography> */}
 
             <RadioGroup
               name="hasCriminalRecord"
@@ -116,6 +118,35 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
                 helperText={formErrors.criminalRecordDetails}
               />
             )}
+            <Typography component="div">
+              <ul>
+              {[
+              "I certify that I have answered all questions on this form fully and accurately, and that I possess the qualifications that I claim to hold",
+              "I certify that I am not on the List 99/ DBS Barred List or disqualified to work with children",
+              "I give my consent for Hanson Recruitment to request a DBS update Service Check and other checks such as references, and the Teaching Regulation Agency lists",
+              " certify that I am not subject to sanctions imposed by the Teaching Agency and I am not currently suspended from work or awaiting the outcome of a disciplinary enquiry",
+              "I certify that I am legally entitled to work in the UK",
+              "I am aware that physical contact with pupils should be avoided and that inflicting physical punishment could have serious consequences including criminal prosecution and referral to the Disclosure & Barring Service (DBS)/ EWC/ LADO/ NCTL",
+              "I agree to support Hanson Recruitment’s commitment to child protection and Equal Opportunities and I have received and understand Hanson Recruitment’s Health & Safety information for temporary workers",
+              "I understand that if I have knowingly given false information omitted or concealed any relevant fact about my eligibility for work, I will have my name removed from Hanson Recruitment’s register and will be reported to the National College for Teaching and leadership/ LADO / EWC which could lead to barring from work within education and possible referral to the police",
+              "I have read the DFE Keeping Children Safe in Education (Part 1). You have been sent a link on this before you attend interview.",
+              "I have read the DFE Guidance Disqualification Under the Childcare Act 2006 (for working with children under the age of 8) you have been sent this link before interview.",
+              "I am not disqualified on any of the grounds set out in the DfE guidance.",
+              "I will notify Hanson Recruitment if any of the above changes.",
+              "I understand that communication between pupils and supply staff, by whatever method, should take place within clear professional boundaries as outlined in Hanson Recruitment’ s E-Safety policy. This includes the wider use of technology such as mobile phone text messaging, emails, digital cameras, videos, web-cams, websites, social networking sites,instant messaging and blogs",
+              "I will return all swipes/ keys and school property to the school at the end of my placement with them, either directly or by post if necessary.",
+              "I give permission for Hanson Recruitment to share any references obtained by the agency with a school/ setting for the purposes of employment."
+
+
+              ].map((point, index) => (
+              <li key={index}>
+                {index === 4|| index === 8|| index === 13 || index === 14 || index === 14? <strong>{point}</strong> : point}
+                
+                </li>
+              ))}
+              </ul>
+              </Typography>
+
 
             <FormControlLabel
               control={
@@ -125,7 +156,11 @@ const DisclosureOfCriminalRecords: React.FC<DisclosureOfCriminalRecordsProps> = 
                   onChange={handleInputChange}
                 />
               }
-              label="I consent to the processing of my application with the provided information."
+              label="By checking this box I allow Hanson Recruitment to process my application using the information that I have provided in accordance with the requirements of the Data
+              Protection Policy and in keeping with the Data Protection Act 1998.The information
+              provided will be used by Hanson Recruitment recruitment Ltd to inform you by letter,
+              phone or email of relevant information and other services which may interest you. No
+              information wil be passed to any third parties"
             />
             {formErrors.CriminalConsentGiven && <Typography color="error">{formErrors.CriminalConsentGiven}</Typography>}
 

@@ -70,12 +70,12 @@ const HealthDeclarationForm: React.FC<HealthDeclarationFormProps> = ({ onNext, o
         <Paper elevation={3} sx={{ padding: 4, margin: 2 }}>
           <Box sx={{ textAlign: 'center', marginBottom: 2 }}>
             <img src={logoImage} alt="Company Logo" style={{ height: '50px' }} />
-            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }}>
-              Apply for this role
+            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }} margin={1.5}>
+            Health Declaration 
             </Typography>
-            <Typography variant="subtitle1">
-              UX Designer • Full time • Remote
-            </Typography>
+            
+            <Typography textAlign={'left'} margin={'1.0em'} >
+            The Education (Health Standards) (England) Regulations 2003 and The Education (Health Standards) (Wales) Regulations 2004 require employers and employment businesses to satisfy themselves that individuals are medically fit and have the appropriate level of physical and mental fitness to be appointed to a post involving regular contact with children. Under Section 60 of the Equality Act, an individual can be asked relevant questions about disability and health in order to establish whether they have the physical and mental capacity for the specific role. This question does not form part of our recruitment decision, but we may ask you for further information before confirming your registration and deploying you to work. Any proven falsification of this declaration may result in the withdrawal of an offer of a placement if it has not yet commenced and removal from Hanson Recruitment’s register if the placement has already commenced</Typography>
           </Box>
           <Box
       width={isNonMobileScreens ? "50%" : "93%"}
