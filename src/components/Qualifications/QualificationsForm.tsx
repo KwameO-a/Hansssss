@@ -19,7 +19,7 @@ const QualificationsForm: React.FC<QualificationsFormProps> = ({ onNext, onPrev 
   const [Referencetitle, setReferenceTitle] = useState(localStorage.getItem('Referencetitle') || '');
   const [position, setPosition] = useState(localStorage.getItem('position') || '');
   const [company, setCompany] = useState(localStorage.getItem('company') || '');
-  const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem('phoneNumber') || '');
+  const [phoneNumber, setPhoneNumber] = useState(localStorage.getItem('qualificationPhoneNumber') || '');
   const [startDate, setStartDate] = useState(localStorage.getItem('startDate') || '');
   const [endDate, setEndDate] = useState(localStorage.getItem('endDate') || '');
   const [ReferenceEmail, setReferenceEmail] = useState(localStorage.getItem('ReferenceEmail') || '');
@@ -35,7 +35,7 @@ const QualificationsForm: React.FC<QualificationsFormProps> = ({ onNext, onPrev 
     localStorage.setItem('Referencetitle', Referencetitle);
     localStorage.setItem('position', position);
     localStorage.setItem('company', company);
-    localStorage.setItem('phoneNumber', phoneNumber);
+    localStorage.setItem('qualificationPhoneNumber', phoneNumber);
     localStorage.setItem('startDate', startDate);
     localStorage.setItem('endDate', endDate);
     localStorage.setItem('ReferenceEmail', ReferenceEmail);
