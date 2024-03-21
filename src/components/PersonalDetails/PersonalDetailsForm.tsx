@@ -151,14 +151,14 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ onNext }) => {
             <img
               src={logoImage}
               alt="Company Logo"
-              style={{ height: "80px" }}
+              style={{ height: "60px" }}
             />
-            <Typography variant="h5" component="h1" sx={{ fontWeight: "bold" }}>
-              Apply for this role
+            <Typography variant="h5" component="h1" sx={{ fontWeight: "bold", marginTop:3}}>
+              Personal Details
             </Typography>
-            <Typography variant="subtitle1">
+            {/* <Typography variant="subtitle1">
               UX Designer • Full time • Remote
-            </Typography>
+            </Typography> */}
           </Box>
           <Box
             width={isNonMobileScreens ? "50%" : "93%"}
@@ -225,7 +225,17 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ onNext }) => {
               onChange={(value) =>
                 setFormValues((prev) => ({ ...prev, phoneNumber: value || "" }))
               }
-              style={{ width: "100%", margin: "16px 0" }}
+              style={{ width: "100%",margin: "16px 0", height: "56px"}}
+              numberInputProps={{
+                style: {
+                  height: '100%',
+                  fontWeight: 400,
+                  fontSize: '1rem',
+                  borderRadius: '4px',
+                  padding: '0 14px',
+                  border: '1px solid rgba(0, 0, 0, 0.23)'
+                }
+              }}
             />
 
             {/* Date of Birth */}

@@ -85,11 +85,10 @@ const QualificationsForm: React.FC<QualificationsFormProps> = ({ onNext, onPrev 
         <Paper elevation={3} sx={{ padding: 4, margin: 2 }}>
           <Box sx={{ textAlign: 'center', marginBottom: 2 }}>
             <img src={logoImage} alt="Company Logo" style={{ height: '50px' }} />
-            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold' }}>
-              Apply for this role
+            <Typography variant="h5" component="h1" sx={{ fontWeight: 'bold', marginTop:3 }}>
+            Highest Level of Qualification 
             </Typography>
             <Typography variant="subtitle1">
-              UX Designer • Full time • Remote
             </Typography>
           </Box>
 
@@ -151,7 +150,17 @@ const QualificationsForm: React.FC<QualificationsFormProps> = ({ onNext, onPrev 
               defaultCountry="GB"
               value={phoneNumber}
               onChange={(value) => setPhoneNumber(value || '')}
-              style={{ width: '100%', margin: '16px 0' }}
+              style={{ width: "100%",margin: "16px 0", height: "56px"}}
+              numberInputProps={{
+                style: {
+                  height: '100%',
+                  fontWeight: 400,
+                  fontSize: '1rem',
+                  borderRadius: '4px',
+                  padding: '0 14px',
+                  border: '1px solid rgba(0, 0, 0, 0.23)'
+                }
+              }}
             />
             <TextField
               label="Start Date of Employment (e.g., MM/YYYY)"
